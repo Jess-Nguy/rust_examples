@@ -1,0 +1,10 @@
+[workspace]
+
+members = [
+    "examples/filter_map",
+    "examples/merge_serde_json",
+    "examples/recursion",
+    "examples/time_zone_ex",
+    "examples/traits",
+    "examples/yaml_to_json",
+]
