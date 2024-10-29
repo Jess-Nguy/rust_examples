@@ -13,6 +13,7 @@ struct DatabaseItem {
     city: String,
 }
 fn main() {
+    // See alternative JSON conversions
     // serde_to_string();
     let contents: String = read_file();
     let basic_json = convert_rust_serde_to_general_json(&contents);
@@ -89,7 +90,7 @@ fn write_file(basic_json: String) {
     println!("\nNew file has text:\n{}\n", contents.yellow());
 }
 
-// Alternative JSON conversion
+// Alternative JSON conversions
 fn serde_to_string() {
     let item = DatabaseItem {
         name: "Alice".to_string(),
@@ -103,5 +104,12 @@ fn serde_to_string() {
     println!(
         "Slice String in JSON format: {}",
         format!("{:?}", slice_string_in_json_format).red()
+    );
+
+    let new_string_pretty = serde_json::to_string_pretty(&item);
+
+    println!(
+        "New String in JSON format: {}",
+        format!("{:?}", new_string_pretty).yellow()
     );
 }
