@@ -31,10 +31,19 @@ fn read_file() -> String {
     let contents =
         fs::read_to_string(file_path).expect("Should have been able to READ the EXISTING file");
 
+    // Alternative JSON conversions for serde_json value to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
+    // let new_string_pretty: String = serde_json::to_string_pretty(&contents).unwrap();
+    // println!(
+    //     "Serde_json::Value to JSON format? : {}",
+    //     format!("{}", new_string_pretty).yellow()
+    // );
+
     println!("\nWith text:\n{}\n", contents.yellow());
+
     contents
 }
 
+/// Case: printing out Value serde json to general json
 /// Convert Rust serde json to general json
 fn convert_rust_serde_to_general_json(input: &str) -> String {
     let mut output = input.to_string();
@@ -90,7 +99,7 @@ fn write_file(basic_json: String) {
     println!("\nNew file has text:\n{}\n", contents.yellow());
 }
 
-// Alternative JSON conversions
+// Alternative JSON conversions but only works for serde_json value to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
 fn serde_to_string() {
     let item = DatabaseItem {
         name: "Alice".to_string(),
@@ -99,17 +108,17 @@ fn serde_to_string() {
     };
     println!("Item: {}", format!("{:?}", item).blue());
 
-    let slice_string_in_json_format = serde_json::to_string(&item);
+    let slice_string_in_json_format: String = serde_json::to_string(&item).unwrap();
 
     println!(
         "Slice String in JSON format: {}",
-        format!("{:?}", slice_string_in_json_format).red()
+        format!("{}", slice_string_in_json_format).red()
     );
 
-    let new_string_pretty = serde_json::to_string_pretty(&item);
+    let new_string_pretty: String = serde_json::to_string_pretty(&item).unwrap();
 
     println!(
         "New String in JSON format: {}",
-        format!("{:?}", new_string_pretty).yellow()
+        format!("{}", new_string_pretty).yellow()
     );
 }
