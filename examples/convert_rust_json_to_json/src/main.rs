@@ -89,6 +89,7 @@ fn write_file(basic_json: String) {
     println!("\nNew file has text:\n{}\n", contents.yellow());
 }
 
+// Alternative JSON conversion
 fn serde_to_string() {
     let item = DatabaseItem {
         name: "Alice".to_string(),
