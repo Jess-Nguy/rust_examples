@@ -1,5 +1,5 @@
 [package]
-name = "merge_serde_json"
+name = "serde_jsons"
 version = "0.1.0"
 edition = "2021"
 

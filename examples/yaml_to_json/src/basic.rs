@@ -71,7 +71,7 @@ mod test_yaml_to_json {
     fn test_yaml_to_json_photo_upload() {
         let yaml_data = r#"---
             :form_version: 1
-            :process_id: bkcda100-9020-4c52-9ec4-11168df157bd
+            :process_id: 18a3ce1e-fa00-4121-8dc4-d2d1d1bef1ea
             :values:
                 eventdescription: ''
                 photoupload: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
@@ -102,7 +102,7 @@ mod test_yaml_to_json {
         let json_expect = json!(
             {
                 "form_version": 1,
-                "process_id": "bkcda100-9020-4c52-9ec4-11168df157bd",
+                "process_id": "18a3ce1e-fa00-4121-8dc4-d2d1d1bef1ea",
                 "user_id": 0,
                 "values": {
                     "eventdescription": "",

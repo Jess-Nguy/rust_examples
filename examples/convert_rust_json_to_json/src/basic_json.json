@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Value_Stream_Entity_Column_Values",
+        "nullable": false,
+        "wxType": "datasource-tier-entity-columns-values"
+    },
+    {
+        "name": "Line_Entity_Column_Values",
+        "nullable": false,
+        "wxType": "datasource-tier-entity-columns-values"
+    },
+    {
+        "name": "Area_Entity_Column_Values",
+        "nullable": false,
+        "wxType": "datasource-tier-entity-columns-values"
+    },
+    {
+        "name": "Equipment_Entity_Column_Values",
+        "nullable": false,
+        "wxType": "datasource-tier-entity-columns-values"
+    },
+    "DBM_FBE_Tier1EntityId",
+    "DBM_FBE_Tier1EntityName",
+    "DBM_FBE_Tier2EntityId",
+    "DBM_FBE_Tier2EntityName",
+    "DBM_FBE_Tier3EntityId",
+    "DBM_FBE_Tier3EntityName",
+    "DBM_FBE_Tier4EntityId",
+    "DBM_FBE_Tier4EntityName",
+    "DBM_FBE"
+]
