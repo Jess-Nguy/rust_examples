@@ -99,7 +99,7 @@ fn write_file(basic_json: String) {
     println!("\nNew file has text:\n{}\n", contents.yellow());
 }
 
-// Alternative JSON conversions but only works for serde_json value to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
+// Alternative JSON conversions but only works for rust struct to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
 fn serde_to_string() {
     let item = DatabaseItem {
         name: "Alice".to_string(),
