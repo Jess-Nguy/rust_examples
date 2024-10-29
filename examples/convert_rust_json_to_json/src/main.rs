@@ -14,10 +14,10 @@ struct DatabaseItem {
 }
 fn main() {
     // See alternative JSON conversions
-    // serde_to_string();
-    let contents: String = read_file();
-    let basic_json = convert_rust_serde_to_general_json(&contents);
-    write_file(basic_json);
+    serde_to_string();
+    // let contents: String = read_file();
+    // let basic_json = convert_rust_serde_to_general_json(&contents);
+    // write_file(basic_json);
 }
 
 /// Read in file
@@ -30,13 +30,6 @@ fn read_file() -> String {
 
     let contents =
         fs::read_to_string(file_path).expect("Should have been able to READ the EXISTING file");
-
-    // Alternative JSON conversions for serde_json value to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
-    // let new_string_pretty: String = serde_json::to_string_pretty(&contents).unwrap();
-    // println!(
-    //     "Serde_json::Value to JSON format? : {}",
-    //     format!("{}", new_string_pretty).yellow()
-    // );
 
     println!("\nWith text:\n{}\n", contents.yellow());
 
@@ -99,7 +92,7 @@ fn write_file(basic_json: String) {
     println!("\nNew file has text:\n{}\n", contents.yellow());
 }
 
-// Alternative JSON conversions but only works for rust struct to json format. it doesn't remove the Object and Array keywords and all other rust specific keywords.
+// Alternative JSON conversions
 fn serde_to_string() {
     let item = DatabaseItem {
         name: "Alice".to_string(),
@@ -108,6 +101,7 @@ fn serde_to_string() {
     };
     println!("Item: {}", format!("{:?}", item).blue());
 
+    // 1 way: Struct json to general json without pretty print
     let slice_string_in_json_format: String = serde_json::to_string(&item).unwrap();
 
     println!(
@@ -115,10 +109,19 @@ fn serde_to_string() {
         format!("{}", slice_string_in_json_format).red()
     );
 
+    // 2 way: Struct json to general json with pretty print
     let new_string_pretty: String = serde_json::to_string_pretty(&item).unwrap();
 
     println!(
         "New String in JSON format: {}",
         format!("{}", new_string_pretty).yellow()
+    );
+
+    // 3 way: Value serde_json to general json
+    let value_item: serde_json::Value = serde_json::json!(item);
+    println!("Value Item: {}", format!("{:?}", value_item).blue());
+    println!(
+        "Value Item converted: {}",
+        format!("{}", serde_json::to_string_pretty(&value_item).unwrap()).red()
     );
 }
